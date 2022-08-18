@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb+srv://lcassanho:221292@clusterluan.jhy2kt9.mongodb.net/db_products?retryWrites=true&w=majority")
 
 app.use(express.json());
 
@@ -16,8 +19,11 @@ app.use(function (req, res, next){
 require('./models/product');
 
 const index = require('./routes/index')
+const productRouter = require('./routes/product-route')
 
 app.use('/', index);
+app.use('/products', productRouter);
+
 
 module.exports = app
 
