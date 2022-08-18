@@ -13,6 +13,8 @@ app.use(function (req, res, next){
     next();
 });
 
+require('./models/product');
+
 const index = require('./routes/index')
 
 app.use('/', index);
